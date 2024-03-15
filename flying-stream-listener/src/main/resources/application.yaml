@@ -1,0 +1,16 @@
+spring:
+  kafka:
+    topic-name: fly-stream-topic
+    properties:
+      spring:
+        json:
+          trusted:
+            packages: "*"
+    consumer:
+      bootstrap-servers: localhost:9092 # Kafka sunucusunun adresi
+      group-id: my-consumer-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+server:
+  port: 9090
